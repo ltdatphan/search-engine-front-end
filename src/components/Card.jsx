@@ -12,6 +12,7 @@ const Card = ({ id, title, topic }) => {
       <a
         href={`https://en.wikipedia.org/w/index.php?curid=${id}`}
         target="_blank"
+        rel="noreferrer"
       >
         Visit site
       </a>

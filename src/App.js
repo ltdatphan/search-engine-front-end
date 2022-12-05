@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Card from "./components/Card";
 import { search } from "./api/api";
 import "./App.css";
