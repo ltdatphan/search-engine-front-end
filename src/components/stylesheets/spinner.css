@@ -3,6 +3,10 @@
   justify-content: center;
   align-items: center;
   height: 400px;
+  flex-direction: column;
+  padding: 0 60px;
+  text-align: center;
+  gap: 20px
 }
 
 .lds-grid {
