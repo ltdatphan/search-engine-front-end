@@ -62,3 +62,13 @@ h1{
 .result-container .zoom {
     transform: scale(1.05);
 }
+
+.chart-container {
+    padding: 0 10%;
+}
+
+@media only screen and (max-width: 800px) {
+    .chart-container {
+        padding: 0 0;
+    }
+}
