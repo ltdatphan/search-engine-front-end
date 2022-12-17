@@ -29,7 +29,8 @@ function App() {
     let xValuesBM25 = [];
     let yValuesBM25 = [];
     for (let i = 0; i < result.length; i++) {
-      xValuesBM25.push(result[i].id);
+      //xValuesBM25.push(result[i].id);
+      xValuesBM25.push(result[i].title);
       yValuesBM25.push(result[i].score);
     }
     setBm25ChartData([xValuesBM25, yValuesBM25]);
