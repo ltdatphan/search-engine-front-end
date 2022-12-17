@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import Card from "./components/Card";
 import Spinner from "./components/Spinner";
-import { search, search_scores } from "./api/api";
+import { search_scores } from "./api/api";
 import "./App.css";
 import BarChart from "./components/BarChart";
 
