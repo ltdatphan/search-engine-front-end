@@ -48,8 +48,7 @@ function App() {
 
   return (
     <>
-      <h1>CPS842 A2 (F2022) - Wikipedia Search Engine</h1>
-      <h2 style={{ textAlign: "center" }}>David Phan - Kirill Shmakov </h2>
+      <h1>CPS842 (F2022) - Wikipedia Search Engine</h1>
       <form onSubmit={queryData} className="searchBar">
         <input
           type="text"
