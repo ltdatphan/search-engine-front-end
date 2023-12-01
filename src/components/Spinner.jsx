@@ -4,14 +4,13 @@ import "./stylesheets/spinner.css";
 const Spinner = () => {
   return (
     <div className="spinner-container">
-      <span>
-        Loading resources. If this has been loading for more than 10 seconds,
-        please send your query again. It is likely the server hasn't been booted
-        up when the query was sent.
+      <span className="loading-message-1">
+        Searching...
       </span>
-      <span>
-        Please allow 20-30 seconds for the server to fully boot up. Then,
-        refresh the page and send your query!
+      <span className="loading-message-2">
+        The backend service will automatically spin down after a period of no usage. Therefore, you might have to wait 2-3 minutes for the service to spin up.
+        <br /> <br /> Please send another query if you haven't received any results within the specified time.
+        <br /> <br /> Sorry for this inconvenience :(
       </span>
       <div className="lds-grid">
         <div></div>

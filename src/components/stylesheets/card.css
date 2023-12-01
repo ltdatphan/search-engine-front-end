@@ -1,27 +1,28 @@
-.card-wrapper {
-    /* border: 2px solid #DEEFB7; */
-    /* border: 1px solid red; */
-    margin: 10px 20px;
+.card-header-link {
+    text-decoration: none;
+    color: #4d5156;
+    display: block;
+    width: fit-content;
 }
 
-.card {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 10px 20px;
-    border-radius: 5px;
-    font-size: 16pt;
-    border: 1px solid black;
-    background-color: #FFDCA9;
-    transition: transform .2s;
-}
-
-.card:hover {
-    transform: scale(1.05);
-}
-
-.card h2 {
+.card-title {
     margin: 0;
+    margin-top: 10px;
+    font-size: 1.2rem;
+    font-weight: 400;
+}
+
+.card-title > a {
+    color: #1a0dab;
+    text-decoration: none;
+}
+
+.card-title > a:hover {
+    text-decoration: underline;
+}
+
+.card-title > a:visited {
+    color: #681da8;
 }
 
 .card-body {
@@ -37,9 +38,29 @@
     justify-content: space-between;
     align-items: center;
 }
-
-.card-icons {
+.card-header {
     display: flex;
     flex-direction: row;
-    gap: 10px
+}
+
+.card-header-info {
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+}
+
+.card-header-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-header-info span {
+    display: block;
+    width: 100%;
+    font-size: 0.90rem;
+}
+
+.other-info {
+    font-size: 0.9rem;
 }

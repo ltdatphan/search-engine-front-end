@@ -2,8 +2,9 @@ import { useState, useEffect } from "react";
 import Card from "./components/Card";
 import Spinner from "./components/Spinner";
 import { search_scores } from "./api/api";
-import "./App.css";
+// import "./App.css";
 import BarChart from "./components/BarChart";
+import { CiSearch } from "react-icons/ci";
 
 function App() {
   const [result, setResult] = useState([]);
@@ -24,7 +25,7 @@ function App() {
   };
 
   useEffect(() => {
-    if (result == [] || nbScores == []) return;
+    if (result.length === 0 || nbScores.length === 0) return;
     // Construct data to graph BM25 scores
     let xValuesBM25 = [];
     let yValuesBM25 = [];
@@ -49,6 +50,25 @@ function App() {
   return (
     <>
       <h1>CPS842 (F2022) - Wikipedia Search Engine</h1>
+
+      <div className="intro-container">
+        <div>
+          <h2>Brief intro about the project</h2>
+          This the final project for CPS842 - Information Retrieval and Web Search made by David Phan, Sania Syed, Kirill Shmakov and Kim Rikter-Svendsen.<br /><br />
+          The goal of this project is to apply our understanding and create a meaningful search engine. We have chosen a dataset of around 10,000 Wikipedia articles, processed and trained our BM25 model. We've also used another dataset containing Wikipedia article ids and their assigned categories to train our Naive Bayes model which is meant to determine the category of the search terms.<br /><br />
+          Here's how it works:
+          <ul>
+            <li><span>Okapi BM25 model</span> - Help calculate how relevant the search term is compared to the contents of the Wikipedia articles</li>
+            <li><span>Naive Bayes (NB) model</span> - Help determine the top 10 categories most related to the search term</li>
+            <li>The final result is a search engine capable of inferring the topics the user is interested in based on the search term and only return most relevant articles within those topics</li>
+          </ul>
+          <br />
+
+          <br />
+          <span>But enough theory, have a try and see how it goes :)</span>
+
+        </div>
+      </div>
       <form onSubmit={queryData} className="searchBar">
         <input
           type="text"
@@ -58,14 +78,14 @@ function App() {
           required
           onChange={(e) => setQuery(e.target.value)}
         ></input>
-        <button type="submit">Search</button>
+        <button type="submit"><CiSearch />Search</button>
       </form>
       {loading && <Spinner />}
-      <div className="result-container">
-        {result.length > 0
-          ? result.map((item, index) => <Card key={index} {...item} />)
-          : null}
-      </div>
+      {result.length > 0 && <div className="result-container">
+        <span>Showing 10 results best matches the term "{query}"</span>
+        {result.map((item, index) => <Card key={index} {...item} />)}
+      </div>}
+
 
       {result.length > 0 ? (
         <div className="chart-container">
