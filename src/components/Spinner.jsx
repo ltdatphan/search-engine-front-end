@@ -8,7 +8,7 @@ const Spinner = () => {
         Searching...
       </span>
       <span className="loading-message-2">
-        The backend service will automatically spin down after a period of no usage. Therefore, you might have to wait 2-3 minutes for the service to spin up.
+        The backend service will automatically spin down after a period of no usage. Therefore, you might have to wait 2-4 minutes for the service to spin up.
         <br /> <br /> Please send another query if you haven't received any results within the specified time.
         <br /> <br /> Sorry for this inconvenience :(
       </span>

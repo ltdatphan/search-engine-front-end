@@ -5,6 +5,7 @@ import { search_scores } from "./api/api";
 // import "./App.css";
 import BarChart from "./components/BarChart";
 import { CiSearch } from "react-icons/ci";
+import { FaGithub } from "react-icons/fa";
 
 function App() {
   const [result, setResult] = useState([]);
@@ -17,11 +18,14 @@ function App() {
     e.preventDefault();
     setLoading(true);
     setResult([]);
-    search_scores(query).then((res) => {
-      setLoading(false);
-      setResult(res.data.result);
-      setNbScores(res.data.nb_result);
-    });
+    search_scores(query)
+      .then((res) => {
+        setLoading(false);
+        setResult(res.data.result);
+        setNbScores(res.data.nb_result);
+      })
+      .catch(e =>
+        console.log(e));
   };
 
   useEffect(() => {
@@ -55,15 +59,16 @@ function App() {
         <div>
           <h2>Brief intro about the project</h2>
           This the final project for CPS842 - Information Retrieval and Web Search made by David Phan, Sania Syed, Kirill Shmakov and Kim Rikter-Svendsen.<br /><br />
-          The goal of this project is to apply our understanding and create a meaningful search engine. We have chosen a dataset of around 10,000 Wikipedia articles, processed and trained our BM25 model. We've also used another dataset containing Wikipedia article ids and their assigned categories to train our Naive Bayes model which is meant to determine the category of the search terms.<br /><br />
+          The goal of this project is to apply our understanding and create a meaningful search engine.
+          We've chosen a subset of 1000 Wikipedia articles and trained 2 models to create our search engine.<br /><br />
           Here's how it works:
           <ul>
-            <li><span>Okapi BM25 model</span> - Help calculate how relevant the search term is compared to the contents of the Wikipedia articles</li>
-            <li><span>Naive Bayes (NB) model</span> - Help determine the top 10 categories most related to the search term</li>
-            <li>The final result is a search engine capable of inferring the topics the user is interested in based on the search term and only return most relevant articles within those topics</li>
+            <li><span>Okapi BM25 model</span> - Help calculate how relevant the search term is compared to the contents of the Wikipedia articles. Essentially looking at the contents of each article and rank their relevancy compared to the search term. A higher score would indicate relevancy.</li>
+            <li><span>Naive Bayes (NB) model</span> - Help the engine interpret which topics are the most relevant to the search terms. We've trained the model with by providing a subset of articles and their topic labels and tested the model with the remaining data.</li>
+            <li>The final result is a search engine capable of inferring the topics the user is interested in based on the search term and only return most relevant articles within those topics.</li>
           </ul>
           <br />
-
+          <span className="git-link"><FaGithub style={{ marginRight: "10px" }} /><a href="https://github.com/ltdatphan/search-engine-front-end">Link to repo</a></span>
           <br />
           <span>But enough theory, have a try and see how it goes :)</span>
 
@@ -78,7 +83,7 @@ function App() {
           required
           onChange={(e) => setQuery(e.target.value)}
         ></input>
-        <button type="submit"><CiSearch />Search</button>
+        <button type="submit"><CiSearch style={{ marginRight: "8px" }} />Search</button>
       </form>
       {loading && <Spinner />}
       {result.length > 0 && <div className="result-container">

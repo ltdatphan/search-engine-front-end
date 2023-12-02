@@ -1,70 +1,64 @@
-# Getting Started with Create React App
+# Information Retrieval and Web Search Project
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is the frontend repo. For backend, please visit https://github.com/ltdatphan/search-engine.
 
-## Available Scripts
+## CPS842 Final Project - Search Engine
 
-In the project directory, you can run:
+This project, created by David Phan, Sania Syed, Kirill Shmakov, and Kim Rikter-Svendsen, is the culmination of our efforts in CPS842 - Information Retrieval and Web Search. The goal of this project is to leverage our understanding of information retrieval concepts to build a meaningful search engine. We focused on a subset of 1000 Wikipedia articles and employed two distinct models to enhance the search engine's capabilities.
 
-### `npm start`
+### Project Overview
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Our search engine utilizes the following models to provide accurate and relevant search results:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+1. **Okapi BM25 Model:**
+   - *Purpose:* This model is designed to calculate the relevance of a search term to the contents of the Wikipedia articles. It assesses the content of each article and ranks their relevance compared to the input search term.
+   - *Scoring:* The Okapi BM25 model assigns a score to each article, with a higher score indicating greater relevance to the search term.
 
-### `npm test`
+2. **Naive Bayes (NB) Model:**
+   - *Purpose:* The NB model aids the search engine in interpreting which topics are the most relevant to the search terms. The model was trained using a subset of articles and their corresponding topic labels, and then tested with the remaining data.
+   - *Outcome:* The NB model enhances the search engine's ability to infer the topics that users are interested in based on their search terms.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### How It Works
 
-### `npm run build`
+1. **Search Term Input:**
+   - Users input a search term into the search engine.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+2. **Okapi BM25 Processing:**
+   - The Okapi BM25 model calculates the relevance scores for each article based on their content compared to the search term.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+3. **Naive Bayes Topic Inference:**
+   - The Naive Bayes model interprets which topics are most relevant to the search term, leveraging the training data.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+4. **Result Compilation:**
+   - The final result is a search engine output that provides the most relevant articles within the inferred topics related to the user's search term.
 
-### `npm run eject`
+### Usage
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+To use the search engine, simply input your search term, and the system will deliver a curated list of articles based on relevance and inferred topics.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+It is currently hosted at [https://search-engine-cps842.netlify.app/](https://search-engine-cps842.netlify.app/).
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Note: Since we are using a free service for backend, it may take a few minutes for the service to spin up and return any results.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Technology stack
+**Front end**
+- React
+- Axios
+- Netlify
 
-## Learn More
+**Backend**
+- Flask
+- Render
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Contributors
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- David Phan
+- Sania Syed
+- Kirill Shmakov
+- Kim Rikter-Svendsen
 
-### Code Splitting
+### Acknowledgments
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+We would like to express our gratitude to the instructors of CPS842 for their guidance and support throughout the project.
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Thank you for exploring our Information Retrieval and Web Search Project!

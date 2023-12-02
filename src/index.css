@@ -36,6 +36,7 @@ h1{
     background-color: white;
     font-size: 1.2rem;
     background-color: #dcdcdc;
+    border-radius: 10px;
 }
 
 .intro-container span {
@@ -91,6 +92,11 @@ h1{
 
 .result-container .zoom {
     transform: scale(1.05);
+}
+
+.git-link {
+    display: flex;
+    align-items: center;
 }
 
 .chart-container {
